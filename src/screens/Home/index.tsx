@@ -7,7 +7,6 @@ import imgStudy from '../../assets/btn/form1.png';
 import imgLaw from '../../assets/btn/img02.png';
 import imgQuiz from '../../assets/btn/img03.png';
 import imgColet from '../../assets/btn/coleta.png';
-import imgFaq from '../../assets/btn/faq.png';
 
 import * as S from './styles';
 import impactsAPI from '../../services/impactsAPI';
@@ -43,9 +42,12 @@ const Home: React.FC = () => {
     navigate('Laws');
   }, [navigate]);
 
-  const navigateToImpact = useCallback(() => {
-    navigate('Impact');
-  }, [navigate]);
+  const navigateToImpact = useCallback(
+    (objectId) => {
+      return navigate('Impact', {objectId});
+    },
+    [navigate],
+  );
 
   const navigateToQuiz = useCallback(() => {
     navigate('Quiz');
@@ -98,7 +100,7 @@ const Home: React.FC = () => {
             data={impacts}
             keyExtractor={(impact) => impact.objectId}
             renderItem={({item: impact}) => (
-              <S.SolidWaste onPress={navigateToImpact}>
+              <S.SolidWaste onPress={() => navigateToImpact(impact.objectId)}>
                 <S.imagePage
                   source={{
                     uri: impact.imgFeature,

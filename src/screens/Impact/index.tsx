@@ -24,11 +24,9 @@ interface Impacts {
 
 const Impact: React.FC = () => {
   const route = useRoute();
-  const routeReceiverParams = route.params as RouteParams;
+  const routeParams = route.params as RouteParams;
 
-  const {name} = routeReceiverParams;
-
-  console.log(name);
+  const idComingFromHome = routeParams.objectId;
 
   const [impacts, setImpacts] = useState<Impacts[]>([]);
 
@@ -39,7 +37,21 @@ const Impact: React.FC = () => {
   return (
     <S.Container>
       <Header />
-      <S.Title>Teste teste</S.Title>
+      {impacts.map((impact) => {
+        if (impact.objectId === idComingFromHome) {
+          return (
+            <>
+              <S.contentContainer>
+                <S.Title>{impact.name}</S.Title>
+                <S.titleOne>{impact.titleOne}:</S.titleOne>
+                <S.contentText>{impact.textOne}</S.contentText>
+                <S.titleOne>{impact.titleTwo}:</S.titleOne>
+                <S.contentText>{impact.textTwo}</S.contentText>
+              </S.contentContainer>
+            </>
+          );
+        }
+      })}
     </S.Container>
   );
 };
