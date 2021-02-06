@@ -82,10 +82,10 @@ const Home: React.FC = () => {
             <S.BackImage source={imgColet} />
             <S.btnTitle>Collect</S.btnTitle>
           </S.BTN>
-          <S.BTN>
-            <S.BackImage source={imgFaq} />
-            <S.btnTitle>Faq</S.btnTitle>
-          </S.BTN>
+          {/*<S.BTN>*/}
+          {/*  <S.BackImage source={imgFaq} />*/}
+          {/*  <S.btnTitle>Faq</S.btnTitle>*/}
+          {/*</S.BTN>*/}
         </S.BTNspaceHorizontal>
         <S.TitlePages>
           <S.TitlePagesText>Types of impacts</S.TitlePagesText>
