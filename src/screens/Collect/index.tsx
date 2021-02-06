@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useState} from 'react';
 import Icon from 'react-native-vector-icons/Feather';
 import Header from '../../components/Header';
 import MapView, {Callout, Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 import * as S from './styles';
 import collectorAPI from '../../services/collectorAPI';
+import {Linking, Platform} from 'react-native';
 
 interface Collector {
   objectId: string;
@@ -18,6 +19,7 @@ interface Collector {
 }
 
 const Collect: React.FC = () => {
+  Icon.loadFont();
   const [collectors, setCollectors] = useState<Collector[]>([]);
 
   const initialPositionMap = {
@@ -33,7 +35,15 @@ const Collect: React.FC = () => {
       .then((response) => setCollectors(response.data.results));
   }, []);
 
-  Icon.loadFont();
+  const callPhone = useCallback((fone) => {
+    let phonNumber = fone.replace(' ', '');
+
+    if (Platform.OS === 'android') {
+      Linking.openURL(`tel:${phonNumber}`);
+    }
+
+    Linking.openURL(`telpromt:${phonNumber}`);
+  }, []);
 
   return (
     <S.Container>
@@ -44,16 +54,19 @@ const Collect: React.FC = () => {
         initialRegion={initialPositionMap}>
         {collectors.map((collector) => (
           <Marker
+            style={{width: 200, height: 150}}
             key={collector.objectId}
             calloutAnchor={{x: 0.5, y: 0.005}}
             coordinate={{
               latitude: Number(collector.latitude),
               longitude: Number(collector.longitude),
             }}>
-            <Callout tooltip>
+            <Callout tooltip onPress={() => callPhone(collector.fone)}>
               <S.calloutContainer>
                 <S.collectorName>{collector.name}</S.collectorName>
+                <S.collectorNameRepre>{collector.repre}</S.collectorNameRepre>
                 <S.collectorFone>{collector.fone}</S.collectorFone>
+                <S.collectorType>{collector.tipo}</S.collectorType>
               </S.calloutContainer>
             </Callout>
           </Marker>
