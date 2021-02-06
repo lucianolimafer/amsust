@@ -4,14 +4,13 @@ import {ILaw} from '.';
 
 export const Container = styled.View`
   flex: 1;
-  padding-top: 24px;
   background: #58866a;
   align-items: center;
   justify-content: center;
 `;
 
 export const lawContainerList = styled(FlatList as new () => FlatList<ILaw>)`
-  padding: 0 10px;
+  padding: 12px 10px 0;
 `;
 
 export const drawImage = styled.Image``;

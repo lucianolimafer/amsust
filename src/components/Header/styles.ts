@@ -1,19 +1,17 @@
 import styled from 'styled-components/native';
-
-export const Container = styled.View`
-  flex: 1;
-  padding-top: 24px;
-  background: #58866a;
-  align-items: center;
-  justify-content: center;
-`;
+import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 
 export const Header = styled.View`
   width: 100%;
-  height: 48px;
+  height: 80px;
   background: #2e3532;
-  margin-bottom: 24px;
-  padding: 12px;
+  padding-top: ${getStatusBarHeight() + 12}px;
+  padding-left: 12px;
+  padding-bottom: 12px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const BackButton = styled.TouchableOpacity``;

@@ -4,13 +4,14 @@ import {QuizTypes} from '.';
 
 export const Container = styled.View`
   flex: 1;
-  padding-top: 24px;
   background: #58866a;
   align-items: center;
   justify-content: flex-start;
 `;
 
-export const testFlat = styled(FlatList as new () => FlatList<QuizTypes>)``;
+export const testFlat = styled(FlatList as new () => FlatList<QuizTypes>)`
+  padding-top: 12px;
+`;
 
 export const quizBTN = styled.View`
   background: #fff;
