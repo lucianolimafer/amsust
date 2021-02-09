@@ -1,12 +1,6 @@
 <h1 align="center">
     <img alt="amsust" src="assets/cover.jpg" width="512px" />
 </h1>
-
-<h3 align="center">
-  <img alt="amsust" src="assets/icon.png" width="200px" /> <br/><br/>
-  AM Sustentável
-</h3>
-
 <p align="center">Neste repositório, você vai encontrar uma aplicação mobile, desenvolvida para a<br/>Adriana Douran, ativista ambientál 🎓 (2020/2021). <br/> A aplicação inclui o Backend provido por um BaaS e Mobile com React Native e TypeScript.</p>
 
 <p align="center">
