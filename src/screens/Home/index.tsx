@@ -10,6 +10,7 @@ import imgColet from '../../assets/btn/coleta.png';
 
 import * as S from './styles';
 import impactsAPI from '../../services/impactsAPI';
+import {Linking, Platform} from 'react-native';
 
 export interface Impacts {
   objectId: string;
@@ -57,24 +58,34 @@ const Home: React.FC = () => {
     navigate('Collect');
   }, [navigate]);
 
+  const callPhone = useCallback(() => {
+    let phonNumber = '+55923878-7150';
+
+    if (Platform.OS === 'android') {
+      Linking.openURL(`tel:${phonNumber}`);
+    }
+
+    Linking.openURL(`telpromt:${phonNumber}`);
+  }, []);
+
   return (
     <S.Container>
       <S.areaViwScroller>
         <S.IntroContent>
           <S.ImageIntro source={imgIntro} />
           <S.IntroView>
-            <S.Title>Environmental impacts</S.Title>
-            <S.TxtOne>and your problems</S.TxtOne>
+            <S.Title>Impactos ambientais</S.Title>
+            <S.TxtOne>e seus problemas</S.TxtOne>
           </S.IntroView>
         </S.IntroContent>
         <S.BTNspaceHorizontal horizontal showsHorizontalScrollIndicator={false}>
           <S.BTN onPress={navigateToCourses}>
             <S.BackImage source={imgStudy} />
-            <S.btnTitle>Courses</S.btnTitle>
+            <S.btnTitle>Cursos</S.btnTitle>
           </S.BTN>
           <S.BTN onPress={navigateToLaws}>
             <S.BackImage source={imgLaw} />
-            <S.btnTitle>Laws</S.btnTitle>
+            <S.btnTitle>Leis</S.btnTitle>
           </S.BTN>
           <S.BTN onPress={navigateToQuiz}>
             <S.BackImage source={imgQuiz} />
@@ -82,7 +93,7 @@ const Home: React.FC = () => {
           </S.BTN>
           <S.BTN onPress={navigateToCollect}>
             <S.BackImage source={imgColet} />
-            <S.btnTitle>Collect</S.btnTitle>
+            <S.btnTitle>Coletores</S.btnTitle>
           </S.BTN>
           {/*<S.BTN>*/}
           {/*  <S.BackImage source={imgFaq} />*/}
@@ -90,7 +101,7 @@ const Home: React.FC = () => {
           {/*</S.BTN>*/}
         </S.BTNspaceHorizontal>
         <S.TitlePages>
-          <S.TitlePagesText>Types of impacts</S.TitlePagesText>
+          <S.TitlePagesText>Tipos de impactos</S.TitlePagesText>
         </S.TitlePages>
 
         <S.Pages>
@@ -111,9 +122,9 @@ const Home: React.FC = () => {
             )}
           />
         </S.Pages>
-        <S.btnDenounce>
+        <S.btnDenounce onPress={callPhone}>
           <Icon name="phone" size={24} color="#f0f0f0" />
-          <S.textBtnDenounce>Aanonymous Report</S.textBtnDenounce>
+          <S.textBtnDenounce>Denúncia anônima</S.textBtnDenounce>
         </S.btnDenounce>
       </S.areaViwScroller>
     </S.Container>

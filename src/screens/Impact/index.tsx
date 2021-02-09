@@ -43,6 +43,7 @@ const Impact: React.FC = () => {
             <>
               <S.contentContainer>
                 <S.Title>{impact.name}</S.Title>
+                <S.contentText>{impact.description}</S.contentText>
                 <S.titleOne>{impact.titleOne}:</S.titleOne>
                 <S.contentText>{impact.textOne}</S.contentText>
                 <S.titleOne>{impact.titleTwo}:</S.titleOne>

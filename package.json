@@ -1,6 +1,6 @@
 {
   "name": "amsust",
-  "version": "0.0.1",
+  "version": "3.2.1",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -15,6 +15,7 @@
     "@react-navigation/stack": "^5.13.0",
     "@types/styled-components-react-native": "^5.1.0",
     "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
     "react": "16.13.1",
     "react-icons": "^4.1.0",
     "react-native": "0.63.4",
