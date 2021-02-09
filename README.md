@@ -3,13 +3,6 @@
 </h1>
 <p align="center">Neste repositório, você vai encontrar uma aplicação mobile, desenvolvida para a<br/>Adriana Douran, ativista ambientál 🎓 (2020/2021). <br/> A aplicação inclui o Backend provido por um BaaS e Mobile com React Native e TypeScript.</p>
 
-<p align="center">
-  <a href="#coffee-build-setup">Setup</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#gear-backend">Backend</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#computer-frontend">Frontend</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#iphone-mobile">Mobile</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-license">License</a>
-</p>
 
 # :coffee: Build Setup
 
@@ -27,7 +20,7 @@ Este projeto foi desenvolvido em Typescript utilizando React Hooks, styled-compo
 
 # :iphone: Mobile
 
-Após clonar o repositório, entre na pasta `mobile` e instale todas as dependências utilizando o comando:
+Após clonar o repositório, entre na raiz do projeto e instale todas as dependências utilizando o comando:
 ```bash
 # Digite o comando abaixo para instalar as dependências:
 yarn install
