@@ -3,7 +3,7 @@
 </h1>
 
 <h3 align="center">
-  <img alt="amsust" src="assets/logo.png" width="200px" /> <br/><br/>
+  <img alt="amsust" src="assets/icon.png" width="200px" /> <br/><br/>
   AM Sustentável
 </h3>
 
