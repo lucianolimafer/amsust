@@ -36,12 +36,8 @@ const Home: React.FC = () => {
     impactsAPI.get('').then((response) => setImpacts(response.data.results));
   }, []);
 
-  const navigateToCourses = useCallback(() => {
-    navigate('Courses');
-  }, [navigate]);
-
-  const navigateToLaws = useCallback(() => {
-    navigate('Laws');
+  const navigateToPage = useCallback((page: string) => {
+    navigate(`${page}`);
   }, [navigate]);
 
   const navigateToImpact = useCallback(
@@ -50,14 +46,6 @@ const Home: React.FC = () => {
     },
     [navigate],
   );
-
-  const navigateToQuiz = useCallback(() => {
-    navigate('Quiz');
-  }, [navigate]);
-
-  const navigateToCollect = useCallback(() => {
-    navigate('Collect');
-  }, [navigate]);
 
   const callPhone = useCallback((value: string) => {
     let phonNumber = value;
@@ -73,30 +61,30 @@ const Home: React.FC = () => {
     <S.Container>
       <S.areaViwScroller>
         <S.IntroContent>
-          <S.ImageIntro source={imgIntro} />
+          <S.ImageIntro resizeMode="contain" source={imgIntro} />
           <S.IntroView>
             <S.Title>Impactos ambientais</S.Title>
             <S.TxtOne>e seus problemas</S.TxtOne>
           </S.IntroView>
         </S.IntroContent>
         <S.BTNspaceHorizontal horizontal showsHorizontalScrollIndicator={false}>
-          <S.BTN onPress={navigateToCourses}>
+          <S.BTN onPress={() => navigateToPage('Courses')}>
             <S.BackImage source={imgStudy} />
             <S.btnTitle>Cursos</S.btnTitle>
           </S.BTN>
-          <S.BTN onPress={navigateToLaws}>
+          <S.BTN onPress={() => navigateToPage('Laws')}>
             <S.BackImage source={imgLaw} />
             <S.btnTitle>Leis</S.btnTitle>
           </S.BTN>
-          <S.BTN onPress={navigateToQuiz}>
+          <S.BTN onPress={() => navigateToPage('Quiz')}>
             <S.BackImage source={imgQuiz} />
             <S.btnTitle>Quiz</S.btnTitle>
           </S.BTN>
-          <S.BTN onPress={navigateToCollect}>
+          <S.BTN onPress={() => navigateToPage('Collect')}>
             <S.BackImage source={imgColet} />
             <S.btnTitle>Coletores</S.btnTitle>
           </S.BTN>
-          <S.BTN>
+          <S.BTN onPress={() => navigateToPage('Faq')}>
             <S.BackImage source={imgFaq} />
             <S.btnTitle>Faq</S.btnTitle>
           </S.BTN>
