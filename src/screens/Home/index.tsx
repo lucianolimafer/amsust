@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {useNavigation} from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import imgIntro from '../../assets/folhalupa.png';
@@ -7,10 +7,11 @@ import imgStudy from '../../assets/btn/form1.png';
 import imgLaw from '../../assets/btn/img02.png';
 import imgQuiz from '../../assets/btn/img03.png';
 import imgColet from '../../assets/btn/coleta.png';
+import imgFaq from '../../assets/btn/faq.png';
 
 import * as S from './styles';
 import impactsAPI from '../../services/impactsAPI';
-import {Linking, Platform} from 'react-native';
+import { Linking, Platform } from 'react-native';
 
 export interface Impacts {
   objectId: string;
@@ -25,7 +26,7 @@ export interface Impacts {
 }
 
 const Home: React.FC = () => {
-  const {navigate} = useNavigation();
+  const { navigate } = useNavigation();
 
   const [impacts, setImpacts] = useState<Impacts[]>([]);
 
@@ -45,7 +46,7 @@ const Home: React.FC = () => {
 
   const navigateToImpact = useCallback(
     (objectId) => {
-      return navigate('Impact', {objectId});
+      return navigate('Impact', { objectId });
     },
     [navigate],
   );
@@ -58,8 +59,8 @@ const Home: React.FC = () => {
     navigate('Collect');
   }, [navigate]);
 
-  const callPhone = useCallback(() => {
-    let phonNumber = '+55923878-7150';
+  const callPhone = useCallback((value: string) => {
+    let phonNumber = value;
 
     if (Platform.OS === 'android') {
       Linking.openURL(`tel:${phonNumber}`);
@@ -95,10 +96,10 @@ const Home: React.FC = () => {
             <S.BackImage source={imgColet} />
             <S.btnTitle>Coletores</S.btnTitle>
           </S.BTN>
-          {/*<S.BTN>*/}
-          {/*  <S.BackImage source={imgFaq} />*/}
-          {/*  <S.btnTitle>Faq</S.btnTitle>*/}
-          {/*</S.BTN>*/}
+          <S.BTN>
+            <S.BackImage source={imgFaq} />
+            <S.btnTitle>Faq</S.btnTitle>
+          </S.BTN>
         </S.BTNspaceHorizontal>
         <S.TitlePages>
           <S.TitlePagesText>Tipos de impactos</S.TitlePagesText>
@@ -110,7 +111,7 @@ const Home: React.FC = () => {
             showsHorizontalScrollIndicator={false}
             data={impacts}
             keyExtractor={(impact) => impact.objectId}
-            renderItem={({item: impact}) => (
+            renderItem={({ item: impact }) => (
               <S.SolidWaste onPress={() => navigateToImpact(impact.objectId)}>
                 <S.imagePage
                   source={{
@@ -122,10 +123,22 @@ const Home: React.FC = () => {
             )}
           />
         </S.Pages>
-        <S.btnDenounce onPress={callPhone}>
-          <Icon name="phone" size={24} color="#f0f0f0" />
-          <S.textBtnDenounce>Denúncia anônima</S.textBtnDenounce>
-        </S.btnDenounce>
+        <S.ViewBtn>
+          <S.btnDenounce
+            colorBG="#af182c"
+            onPress={() => callPhone('+55923878-7150')}
+          >
+            <Icon name="phone" size={24} color="#f0f0f0" />
+            <S.textBtnDenounce>Denúncia anônima</S.textBtnDenounce>
+          </S.btnDenounce>
+          <S.btnDenounce
+            colorBG="#2E3532"
+            onPress={() => callPhone('+559298415-9563')}
+          >
+            <Icon name="phone" size={24} color="#f0f0f0" />
+            <S.textBtnDenounce>Coleta agendada</S.textBtnDenounce>
+          </S.btnDenounce>
+        </S.ViewBtn>
       </S.areaViwScroller>
     </S.Container>
   );

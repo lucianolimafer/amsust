@@ -10,7 +10,7 @@ export const featureImg = styled.ImageBackground`
   height: 100%;
 `;
 
-export const contentContainer = styled.View``;
+export const contentContainer = styled.ScrollView``;
 
 export const Title = styled.Text`
   color: #fff;

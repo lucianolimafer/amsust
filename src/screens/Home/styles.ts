@@ -3,7 +3,6 @@ import styled from 'styled-components/native';
 import {Impacts} from '.';
 
 export const Container = styled.View`
-  padding: 12px 0;
   flex: 1;
   background: #55856c;
   border-top-right-radius: 180px;
@@ -12,6 +11,7 @@ export const Container = styled.View`
 
 export const areaViwScroller = styled.ScrollView`
   flex: 1;
+  padding: 24px;
 `;
 
 export const IntroContent = styled.View`
@@ -125,20 +125,30 @@ export const TitlePagesBtn = styled.Text`
   padding: 12px;
 `;
 
-export const btnDenounce = styled.TouchableOpacity`
-  width: 90%;
-  height: 56px;
-  background: #d42439;
-  margin-left: 20px;
+export const ViewBtn = styled.View`
+  display: flex;
+  flex-direction: row;
+`;
+
+interface BTNProps {
+  colorBG: string;
+}
+
+export const btnDenounce = styled.TouchableOpacity<BTNProps>`
+  flex: 1;
+  background: ${props => props.colorBG};
+  margin-left: 16px;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 0 12px;
+  padding: 12px;
+  margin-top: 6px;
 `;
 
 export const textBtnDenounce = styled.Text`
   font-size: 24px;
   color: #f0f0f0;
+  margin-left: 6px;
 `;
