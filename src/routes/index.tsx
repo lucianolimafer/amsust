@@ -18,6 +18,7 @@ import QuizOil from '../pages/QuizOil';
 import QuizPils from '../pages/QuizPils';
 import QuizRelact from '../pages/QuizRelact';
 import QuizTOF from '../pages/QuizTOF';
+import Faq from '../screens/Faq';
 
 const App = createStackNavigator();
 
@@ -47,6 +48,7 @@ const Routes: React.FC = () => (
     <App.Screen name="QuizPils" component={QuizPils} />
     <App.Screen name="QuizRelact" component={QuizRelact} />
     <App.Screen name="QuizTOF" component={QuizTOF} />
+    <App.Screen name="Faq" component={Faq} />
   </App.Navigator>
 );
 

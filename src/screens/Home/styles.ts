@@ -23,8 +23,8 @@ export const IntroContent = styled.View`
 `;
 
 export const ImageIntro = styled.Image`
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  height: 150px;
 `;
 
 export const IntroView = styled.View`
